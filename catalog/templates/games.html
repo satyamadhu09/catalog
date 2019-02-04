@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	    
+    <style>
+    body{
+    	background-image: url("/static/colors-backgrounds.jpg");
+    	font-size: 20px;
+    	background-repeat: no-repeat;
+    	background-size:cover;
+    }
+    	.log{
+    		text-align: right;
+    		color:red;
+    	}
+    	.gmenu{
+
+  			border: 2px solid black;
+  			padding: 10px;
+  			border-radius: 50px 20px;
+  			width: 100px ;
+  			margin-left: auto ;
+  			margin-right: auto ;
+  			text-align: center;
+		}
+ 		.show{
+ 			text-align: center;
+ 			font-family: century gothic;
+ 			color: green;
+ 		}
+    </style>
+</head>
+
+<body>
+	
+<div class='show'>
+<h1>Game Genres</h1>
+</div>
+<div class="log">
+<a href="{{url_for('showlogin', game_id=id)}}">Login</a>
+</div>
+
+<div class="flash">
+	{% with messages = get_flashed_messages() %}
+	{% if messages %}
+	<ul>
+		{% for message in messages %}
+  			<li><strong>{{message}}</strong></li>
+  		{% endfor %}
+    </ul>
+    {% endif %}
+    {% endwith %}
+</div>
+
+{% for i in game %}
+
+<div class="gmenu">
+<a href="{{url_for('game_Menu', game_id=i.id)}}">{{i.name}}</a><br>
+</div>
+
+{% endfor %}
+
+
+
+
+</body>
+</html>

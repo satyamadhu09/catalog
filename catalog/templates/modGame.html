@@ -1,0 +1,23 @@
+<html>
+<head>
+	
+</head>
+<body>
+
+<h1> Edit Game </h1>
+
+
+<form action="{{ url_for('modGame',game_id = game.id)}}" method = 'post'>
+
+<p>Name:</p>
+<input type ='text' size='30' name='name' placeholder = '{{game.name }}'>
+
+<input type='submit' value='Edit'>
+
+
+<a href = '{{url_for('showGames')}}'> Cancel </a>
+
+</form>
+</body>
+
+</html>

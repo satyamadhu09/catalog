@@ -1,0 +1,22 @@
+<html>
+<head>
+	
+</head>
+<body>
+<h1>Modify game list</h1>
+
+<form action="{{url_for('editGameList', game_id=game_id, list_id=list.id)}}" method="POST">
+	
+<p>Name:</p>
+<input type='text' name='name' size="30" placeholder='{{list.name}}' required>
+<p>Description:</p>
+<input type="text" name="description" size="30" >
+<p>Price:</p>
+<input type="text" name="price" size="30">
+<br>
+<br>
+<input type="submit" value="Edit">
+</form>
+<a href='{{url_for('game_Menu', game_id=list.game_id)}}'>Cancel</a>
+</body>
+</html>

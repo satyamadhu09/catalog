@@ -1,0 +1,77 @@
+<html>
+<head>
+	<style>
+		.show{
+			max-width: 2060px;
+  			text-align: center;
+  			margin: 0 auto;
+  			padding: 10px;
+  			margin-top: 30px;
+  			width: 240px ;
+  			
+		}
+		.show1{
+			max-width: 100%;
+  			
+  			font-family: 'Charmonman', cursive;
+ 			color: purple;
+  			font-size: 20px;
+		}
+		.cright{
+			text-align: right;
+		}
+
+		h1{
+			color:red;
+			text-align: center;
+			font-family: 'Charmonman', cursive;
+		}
+	</style>
+</head>
+<body>
+
+<h1>{{game.name}}</h1>
+
+<div class="cright">
+<a href='{{url_for('createGameList', game_id= game.id)}}' method='POST'>Create game list</a>
+</div>
+
+<div class="flash">
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+
+<ul>
+	{% for message in messages %}
+	   <li> {{message}}</li>
+	{% endfor %}
+</ul>
+{% endif %}
+{% endwith %}
+
+</div>
+
+
+
+
+{% for i in list %}
+
+<div class="show">
+	<div class="show1">	
+<p>{{i.name}}</p>
+
+<p>{{i.description}}</p>
+
+<p>Price: {{i.price}} </p>
+
+
+<a href='{{url_for('editGameList', game_id=game.id, list_id=i.id )}}'>Edit | </a>
+
+<a href= '{{url_for('delGameList', game_id=game.id, list_id=i.id )}}'> Delete</a>
+	</div>
+
+{% endfor %}
+
+</div>
+</body>
+
+</html>

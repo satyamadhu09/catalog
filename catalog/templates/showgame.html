@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style>
+	body{
+		background-image: url("./static/cover_back.jpg");
+		background-repeat: no-repeat;
+    	background-size:cover;
+	}
+		.cright{
+			text-align: right;
+		}
+		.show{
+			margin-left: auto ;
+  			margin-right: auto ;
+  			text-align: center;
+  			border: 2px solid red;
+  			padding: 10px;
+  			border-radius: 60px 20px;
+  			width: 240px ;
+  			background-color: #DCDCDC;
+		}
+		h1{
+			text-align: center;
+			font-family: 'ZCOOL KuaiLe', cursive;
+			color: red;
+		}
+		a {
+			text-decoration: none; 
+			color: black;
+	    }	
+	</style>
+</head>
+
+<body>
+	
+
+<h1>Game Genres</h1>
+
+<div class="cright">
+<a href='{{url_for('newGame')}}'>Add Game Genre</a><br><br>
+<a href='{{url_for('gdisconnect') }}'>Log Out</p>
+</div>
+
+<div class="flash">
+	{% with messages = get_flashed_messages() %}
+	{% if messages %}
+	<ul>
+	{% for message in messages %}
+  	<li><strong>{{message}}</strong></li>
+  	{% endfor %}
+    </ul>
+    {% endif %}
+    {% endwith %}
+</div>
+
+<div class='show'>
+
+
+{% for i in game %}
+
+<a href="{{url_for('game_Menu', game_id=i.id)}}">{{i.name}}</a><br>
+
+<a href = "{{url_for('modGame',game_id = i.id)}}">Edit |</a>
+
+<a href = "{{url_for('delGame',game_id = i.id)}}">Delete</a><br><br>
+
+
+{% endfor %}
+
+</div>
+
+
+</body>
+</html>
