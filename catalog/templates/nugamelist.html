@@ -10,11 +10,11 @@
 <form action="{{url_for('createGameList', game_id=game_id)}}" method="POST">
 
 <p>Game Name:</p>
-<input type="text" name="name" size="30"><br>
+<input type="text" name="name" size="30" required><br>
 <p>Description:</p>
-<input type="text" name="Description" size="30"><br>
+<input type="text" name="Description" size="30" required><br>
 <p>Price:</p>
-<input type="number" name="Price"><br>
+<input type="number" name="Price" required><br>
 <input type="submit" value="Add">
 
 </form>
