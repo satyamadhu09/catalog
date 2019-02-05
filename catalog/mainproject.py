@@ -200,7 +200,7 @@ def gameMenuJSON(game_id):
 @app.route('/games/<int:game_id>/menu/<int:list_id>/JSON')
 def gameListJSON(game_id, list_id):
     gameList = session.query(ListGame).filter_by(id=list_id).one()
-    return jsonify(ListGame=gamelist.serialize)
+    return jsonify(ListGame=gameList.serialize)
 
 
 @app.route('/restaurants/JSON')
